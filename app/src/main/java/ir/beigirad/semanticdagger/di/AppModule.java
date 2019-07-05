@@ -10,7 +10,7 @@ import ir.beigirad.semanticdagger.model.Pump;
 /**
  * Created by Farhad Beigirad on 2019-06-29.
  */
-@Module
+@Module(includes = {SecondModule.class})
 public abstract class AppModule {
 
     @Provides
