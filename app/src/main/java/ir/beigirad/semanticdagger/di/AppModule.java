@@ -11,10 +11,10 @@ import ir.beigirad.semanticdagger.model.Pump;
  * Created by Farhad Beigirad on 2019-06-29.
  */
 @Module(includes = {SecondModule.class})
-public abstract class AppModule {
+public class AppModule {
 
     @Provides
-    public static CoffeeMaker provideCoffeeMaker(Heater heater, Pump pump) {
+    public CoffeeMaker provideCoffeeMaker(Heater heater, Pump pump) {
         return new CoffeeMaker(heater, pump);
     }
 }
