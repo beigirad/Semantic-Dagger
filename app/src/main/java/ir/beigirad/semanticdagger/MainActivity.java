@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import javax.inject.Inject;
 
 import ir.beigirad.semanticdagger.di.AppComponent;
-import ir.beigirad.semanticdagger.di.AppModule;
 import ir.beigirad.semanticdagger.di.DaggerAppComponent;
 import ir.beigirad.semanticdagger.model.CoffeeMaker;
 
@@ -23,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mAppComponent = DaggerAppComponent.builder()
-                .appModule(new AppModule(this))
-                .build();
+                .builderContext(this)
+                .buildAppComponent();
 
         mAppComponent.inject(this);
 

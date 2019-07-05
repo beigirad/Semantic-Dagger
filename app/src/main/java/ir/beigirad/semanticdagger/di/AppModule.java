@@ -15,14 +15,8 @@ import ir.beigirad.semanticdagger.model.Pump;
 @Module(includes = {SecondModule.class})
 public class AppModule {
 
-    Context context;
-
-    public AppModule(Context context) {
-        this.context = context;
-    }
-
     @Provides
-    public CoffeeMaker provideCoffeeMaker(Heater heater, Pump pump) {
+    public CoffeeMaker provideCoffeeMaker(Heater heater, Pump pump, Context context) {
         return new CoffeeMaker(heater, pump, context);
     }
 }
