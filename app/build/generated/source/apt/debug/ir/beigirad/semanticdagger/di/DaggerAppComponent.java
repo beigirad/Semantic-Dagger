@@ -19,10 +19,6 @@ public final class DaggerAppComponent extends AppComponent {
     return new Builder();
   }
 
-  public static AppComponent create() {
-    return new Builder().build();
-  }
-
   private CoffeeMaker getCoffeeMaker() {
     return AppModule_ProvideCoffeeMakerFactory.provideCoffeeMaker(
         appModule, new ElectricHeater(), new Pump());
@@ -49,9 +45,7 @@ public final class DaggerAppComponent extends AppComponent {
     }
 
     public AppComponent build() {
-      if (appModule == null) {
-        this.appModule = new AppModule();
-      }
+      Preconditions.checkBuilderRequirement(appModule, AppModule.class);
       return new DaggerAppComponent(appModule);
     }
   }
